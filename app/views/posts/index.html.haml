@@ -1,0 +1,6 @@
+%h1 Index Page!
+
+-@posts.each do |post|
+  %h2= link_to post.title, post
+
+= link_to "New Post", new_post_path
