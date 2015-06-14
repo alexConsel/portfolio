@@ -28,6 +28,8 @@ gem 'simple_form', '~> 3.1.0'
 gem 'devise', '~> 3.5.1'
 gem 'paperclip', '~> 4.2.2'
 gem 'acts_as_votable', '~> 0.10.0'
+gem 'bootstrap-sass', '~> 3.3.4.1'
+gem 'font-awesome-rails', '~> 4.3.0.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

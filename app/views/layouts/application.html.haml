@@ -1,0 +1,32 @@
+!!!
+%html
+  %head
+    %title Portfolio
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    //%link{:rel => "stylesheet", :href => "https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.css"}
+    //%link{:rel => "stylesheet", :href => "https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"}
+    = csrf_meta_tags
+  %body
+    .navbar.navbar-default.navbar-fixed-top
+      .container-fluid
+        %header
+          %nav
+            .navbar-header
+              %button{type: 'button', class: 'navbar-toggle collapsed', data: {toggle: 'collapse', target: '#bs-example-navbar-collapse-1'}}
+                %span.sr-only Toggle Navigation
+                %span.icon-bar
+                %span.icon-bar
+                %span.icon-bar
+              .navbar-brand= link_to "Portfolio", root_path
+            .collapse.navbar-collapse{id: 'bs-example-navbar-collapse-1'}
+              %ul.nav.navbar-nav
+                - if user_signed_in?
+                  %li= link_to current_user.email, edit_user_registration_path
+                  %li= link_to "Add New Work", new_post_path, class: "button"
+                - else
+                  %li= link_to "Sign Up", new_user_registration_path, class: "button"
+                  %li= link_to "Sign In", new_user_session_path, class: "button"
+    %p.notice= notice
+    %p.alert= alert
+    = yield
