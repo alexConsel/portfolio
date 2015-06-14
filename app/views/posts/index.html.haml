@@ -1,6 +1,7 @@
 %h1 Index Page!
 
 -@posts.each do |post|
+  =link_to (image_tag post.image.url(:thumb)), post
   %h2= link_to post.title, post
 
 = link_to "New Post", new_post_path
