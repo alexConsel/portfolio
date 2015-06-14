@@ -1,3 +1,5 @@
-%h1 Edit Post
-
-=render 'form'
+-if current_user == @post.user
+  %h1 Edit Post
+  =render 'form'
+-else
+  %h1 You don't have the privileges to modify this post!
