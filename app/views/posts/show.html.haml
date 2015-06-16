@@ -1,27 +1,43 @@
-= image_tag @post.image.url(:medium)
+.col-md-8.col-md-offset-2
+  .row
+    .panel.panel-default
+      .panel-heading
+        %h1= @post.title
+      .panel-body
+        = image_tag @post.image.url(:medium)
+        %h4
+          Link:
+          = @post.link
+        %p= @post.description
+        %p.label.label-info{style: "float: right;"}
+          Submitted by:
+          = @post.user.email
 
-%h1= @post.title
-%p= @post.link
-%p= @post.description
-%p= @post.user.email
-%p
-  = @post.get_upvotes.size
-  Likes
-%p
-  = @post.get_downvotes.size
-  Dislikes
-=link_to "Like", like_post_path(@post), method: :get
-=link_to "Dislike", dislike_post_path(@post), method: :get
+      .panel-footer
+        .label.label-success.custom-label= @post.get_upvotes.size
+        .label.label-danger.custom-label= @post.get_downvotes.size
+        %p{:role => "button", :class => "btn btn-primary custom-label", :style => "float:right;"}= link_to  "Like", like_post_path(@post), method: :get
+        %p{:role => "button", :class => "btn btn-primary custom-label", :style => "float:right; margin-right: 5px;"}= link_to  "Dislike", dislike_post_path(@post), method: :get
+        %br
+        %br
 
+%br{style: "clear:both"}
+.col-md-8.col-md-offset-2
+  .row
+    %h2.comments_count= pluralize(@post.comments.count, "Comment")
+%br{style: "clear:both"}
+%br{style: "clear:both"}
 
+-@comments.each do |comment|
+  .col-md-8.col-md-offset-2
+    .row
+      .panel.panel-default
+        .panel-heading
+          %h3= comment.user.email
+        .panel-body
+          %p.content= comment.content
 
-#comment
-  %h2.comments_count= pluralize(@post.comments.count, "Comment")
-  -@comments.each do |comment|
-    .comment
-      %p.username= comment.user.email
-      %p.content= comment.content
-  = render 'comments/form'
+= render 'comments/form'
 
 =link_to "Edit", edit_post_path(@post)
 =link_to "Delete", post_path(@post), method: :delete, data: { confirm: "Are you sure?"}

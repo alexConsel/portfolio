@@ -1,3 +1,12 @@
-= simple_form_for([@post, @post.comments.build]) do |f|
-  = f.input :content, label: "Reply to post"
-  =f.button :submit, class: "button"
+.col-md-8.col-md-offset-2
+  .row
+    .panel.panel-default
+      .panel-heading
+        %h1 Post a comment.
+      .panel-body
+        = simple_form_for([@post, @post.comments.build]) do |f|
+          .form-group
+            = f.input :content, label: "Comment", class: "form-control"
+          .form-group
+            =f.button :submit, class: "button", class: "btn btn-primary"
+%br{style: "clear:both"}

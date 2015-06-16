@@ -1,12 +1,15 @@
 %h1 Index Page!
 
--@posts.each do |post|
-  =link_to (image_tag post.image.url(:thumb)), post
-  %h2= link_to post.title, post
-  %p
-    = post.get_upvotes.size
-    Likes
-    = post.get_downvotes.size
-    Dislikes
-
-= link_to "New Post", new_post_path
+.row
+  -@posts.each do |post|
+    .col-sm-6.col-md-3
+      .thumbnail.thumb-spc
+        .img-circle= link_to (image_tag post.image.url(:medium)), post
+        //.caption
+        //%h2.middle-title= link_to post.title, post
+        %p.label.label-default.thumb-title= post.title
+        %p{:role => "button", :class => "btn btn-primary check-it custom-label"}= link_to  "Check it out!", post
+        .like-prev
+          %p
+            .label.label-success.custom-label= post.get_upvotes.size
+            .label.label-danger.custom-label= post.get_downvotes.size

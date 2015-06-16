@@ -15,3 +15,88 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "font-awesome";
+
+.thumb-spc{
+  min-height: 310px;
+  background-color: #F7F7F7;
+  img{
+    border-radius: 10%;
+  }
+}
+
+.like-prev{
+  position:absolute;
+  top:0%;
+  right: 5%;
+}
+
+.thumb-title{
+  position: absolute;
+  top:0%;
+  font-size: 30px;
+  font-weight: 100;
+  background-color: #2E2F30;
+}
+
+.custom-label{
+  font-size: 25px;
+  font-weight: 100;
+}
+
+.navbar-brand{
+  font-size: 50px;
+  font-weight: 100;
+}
+
+.check-it{
+  position:absolute;
+  bottom:6%;
+  right: 7%;
+}
+
+.middle-title{
+  position: relative;
+  top:50%;
+}
+
+.btn-primary {
+  a {
+    color: white;
+  }
+  a:link {
+    text-decoration: none;
+  }
+
+  a:visited {
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: none;
+  }
+
+  a:active {
+    text-decoration: none;
+  }
+}
+
+.disable-link{
+  a {
+    color: midnightblue;
+  }
+  a:link {
+    text-decoration: none;
+  }
+
+  a:visited {
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: none;
+  }
+
+  a:active {
+    text-decoration: none;
+  }
+}

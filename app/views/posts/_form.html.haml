@@ -1,7 +1,17 @@
-=simple_form_for @post do |f|
-  =f.input :image
-  =f.input :title
-  =f.input :link
-  =f.input :description
-
-  =f.button :submit
+.col-md-8.col-md-offset-2
+  .row
+    .panel.panel-default
+      .panel-heading
+        %h1 Work Form.
+      .panel-body
+        =simple_form_for @post do |f|
+          .form-group
+            =f.input :image, class: "form-control"
+          .form-group
+            =f.input :title, class: "form-control"
+          .form-group
+            =f.input :link, class: "form-control"
+          .form-group
+            =f.input :description, class: "form-control"
+          .form-group
+            =f.button :submit, class: "btn btn-primary"
